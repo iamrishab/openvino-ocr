@@ -1,0 +1,1742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net batch="1" name="text-recognition-0012" version="5">
+	<layers>
+		<layer id="0" name="Placeholder" precision="FP32" type="Input">
+			<output>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="Mul1_3428/Fused_Mul_/FusedPower_" precision="FP32" type="Power">
+			<data power="1" scale="0.00984671501353962" shift="-1.1930005163777082"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="2" name="shadow/Conv/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="64" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="0" size="2304"/>
+				<biases offset="2304" size="256"/>
+			</blobs>
+		</layer>
+		<layer id="3" name="shadow/BatchNorm_1/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="shadow/MaxPool2D/MaxPool" precision="FP32" type="Pooling">
+			<data auto_pad="valid" exclude-pad="true" kernel="2,2" pads_begin="0,0" pads_end="0,0" pool-method="max" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>16</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="shadow/Conv_1/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="128" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>16</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>16</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="2560" size="294912"/>
+				<biases offset="297472" size="512"/>
+			</blobs>
+		</layer>
+		<layer id="6" name="shadow/BatchNorm_2/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>16</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>16</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="7" name="shadow/MaxPool2D_1/MaxPool" precision="FP32" type="Pooling">
+			<data auto_pad="valid" exclude-pad="true" kernel="2,2" pads_begin="0,0" pads_end="0,0" pool-method="max" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>16</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="8" name="shadow/Conv_2/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="256" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="297984" size="1179648"/>
+				<biases offset="1477632" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="9" name="shadow/BatchNorm_3/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="10" name="shadow/Conv_3/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="256" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1478656" size="2359296"/>
+				<biases offset="3837952" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="11" name="shadow/BatchNorm_4/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="12" name="shadow/MaxPool2D_2/MaxPool" precision="FP32" type="Pooling">
+			<data auto_pad="valid" exclude-pad="true" kernel="2,1" pads_begin="0,0" pads_end="0,0" pool-method="max" strides="2,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>8</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="13" name="shadow/Conv_4/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="3838976" size="4718592"/>
+				<biases offset="8557568" size="2048"/>
+			</blobs>
+		</layer>
+		<layer id="14" name="shadow/BatchNorm_5/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="shadow/Conv_5/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="8559616" size="9437184"/>
+				<biases offset="17996800" size="2048"/>
+			</blobs>
+		</layer>
+		<layer id="16" name="shadow/BatchNorm_6/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="shadow/MaxPool2D_3/MaxPool" precision="FP32" type="Pooling">
+			<data auto_pad="valid" exclude-pad="true" kernel="2,1" pads_begin="0,0" pads_end="0,0" pool-method="max" strides="2,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>4</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>2</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="18" name="shadow/Conv_6/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="2,2" output="512" pads_begin="0,0" pads_end="0,1" strides="2,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>2</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="17998848" size="4194304"/>
+				<biases offset="22193152" size="2048"/>
+			</blobs>
+		</layer>
+		<layer id="19" name="shadow/BatchNorm_7/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>30</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="20" name="shadow/BatchNorm_7/Relu/Permute_" precision="FP32" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>30</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="21" name="shadow/Squeeze/DimData_const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>3</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195200" size="12"/>
+			</blobs>
+		</layer>
+		<layer id="22" name="shadow/Squeeze" precision="FP32" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="23" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="24" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="25" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="0"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" external_port_id="3" internal_layer_id="2" internal_port_id="1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="22272180" size="3145728"/>
+							<biases offset="25417908" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="26" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="27" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="28" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" end="0" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="-1" stride="-1"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="1"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="2"/>
+				<output axis="1" end="0" external_port_id="3" internal_layer_id="2" internal_port_id="1" start="-1" stride="-1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="25422004" size="3145728"/>
+							<biases offset="28567732" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="29" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_0/concat" precision="FP32" type="Concat">
+			<data axis="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="30" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="31" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="32" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="0"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" external_port_id="3" internal_layer_id="2" internal_port_id="1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="28571828" size="3145728"/>
+							<biases offset="31717556" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="33" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="34" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="35" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" end="0" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="-1" stride="-1"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" end="0" external_port_id="3" internal_layer_id="2" internal_port_id="1" start="-1" stride="-1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="31721652" size="3145728"/>
+							<biases offset="34867380" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="36" name="shadow/LSTMLayers/encoder/stack_bidirectional_rnn/cell_1/concat" precision="FP32" type="Concat">
+			<data axis="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="37" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="38" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="39" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="0"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" external_port_id="3" internal_layer_id="2" internal_port_id="1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="34871476" size="3145728"/>
+							<biases offset="38017204" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="40" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="41" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="42" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" end="0" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="-1" stride="-1"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" end="0" external_port_id="3" internal_layer_id="2" internal_port_id="1" start="-1" stride="-1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="38021300" size="3145728"/>
+							<biases offset="41167028" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="43" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_0/concat" precision="FP32" type="Concat">
+			<data axis="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="44" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="45" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="46" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="0"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" external_port_id="3" internal_layer_id="2" internal_port_id="1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="41171124" size="3145728"/>
+							<biases offset="44316852" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="47" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Enter_3/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="48" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Enter_4/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22195212" size="1024"/>
+			</blobs>
+		</layer>
+		<layer id="49" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/LoopCond/TensorIteratorCondition_/TensorIterator" precision="FP32" type="TensorIterator">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+			<port_map>
+				<input axis="1" end="0" external_port_id="0" internal_layer_id="0" internal_port_id="0" start="-1" stride="-1"/>
+				<input external_port_id="1" internal_layer_id="1" internal_port_id="2"/>
+				<input external_port_id="2" internal_layer_id="1" internal_port_id="1"/>
+				<output axis="1" end="0" external_port_id="3" internal_layer_id="2" internal_port_id="1" start="-1" stride="-1"/>
+			</port_map>
+			<back_edges>
+				<edge from-layer="1" from-port="6" to-layer="1" to-port="2"/>
+				<edge from-layer="1" from-port="5" to-layer="1" to-port="1"/>
+			</back_edges>
+			<body>
+				<layers>
+					<layer id="0" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/TensorArrayReadV3/Output_0/Data_/InputSqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,512"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+						</output>
+					</layer>
+					<layer id="1" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell" precision="FP32" type="LSTMCell">
+						<data hidden_size="256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>512</dim>
+							</port>
+							<port id="1">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="2">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="5">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+							<port id="6">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+						<blobs>
+							<weights offset="44320948" size="3145728"/>
+							<biases offset="47466676" size="4096"/>
+						</blobs>
+					</layer>
+					<layer id="2" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/lstm_cell/concat/LSTMCell/Output_0/Data_/OutputUnsqueeze" precision="FP32" type="Reshape">
+						<data dim="-1,1,256"/>
+						<input>
+							<port id="0">
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</input>
+						<output>
+							<port id="1">
+								<dim>1</dim>
+								<dim>1</dim>
+								<dim>256</dim>
+							</port>
+						</output>
+					</layer>
+				</layers>
+				<edges>
+					<edge from-layer="0" from-port="1" to-layer="1" to-port="0"/>
+					<edge from-layer="1" from-port="5" to-layer="2" to-port="0"/>
+				</edges>
+			</body>
+		</layer>
+		<layer id="50" name="shadow/LSTMLayers/decoder/stack_bidirectional_rnn/cell_1/concat" precision="FP32" type="Concat">
+			<data axis="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="51" name="shadow/LSTMLayers/Reshape/shape/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22196236" size="8"/>
+			</blobs>
+		</layer>
+		<layer id="52" name="shadow/LSTMLayers/Reshape" precision="FP32" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="53" name="shadow/LSTMLayers/fully_connected/MatMul" precision="FP32" type="FullyConnected">
+			<data out-size="37"/>
+			<input>
+				<port id="0">
+					<dim>30</dim>
+					<dim>512</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>30</dim>
+					<dim>37</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="22196244" size="75776"/>
+				<biases offset="22272020" size="148"/>
+			</blobs>
+		</layer>
+		<layer id="54" name="shadow/LSTMLayers/Reshape_1/shape/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>3</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="22272168" size="12"/>
+			</blobs>
+		</layer>
+		<layer id="55" name="shadow/LSTMLayers/Reshape_1" precision="FP32" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>30</dim>
+					<dim>37</dim>
+				</port>
+				<port id="1">
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>37</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="56" name="shadow/LSTMLayers/transpose_time_major" precision="FP32" type="Permute">
+			<data order="1,0,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>30</dim>
+					<dim>37</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>30</dim>
+					<dim>1</dim>
+					<dim>37</dim>
+				</port>
+			</output>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="0" to-layer="1" to-port="0"/>
+		<edge from-layer="1" from-port="1" to-layer="2" to-port="0"/>
+		<edge from-layer="2" from-port="3" to-layer="3" to-port="0"/>
+		<edge from-layer="3" from-port="1" to-layer="4" to-port="0"/>
+		<edge from-layer="4" from-port="1" to-layer="5" to-port="0"/>
+		<edge from-layer="5" from-port="3" to-layer="6" to-port="0"/>
+		<edge from-layer="6" from-port="1" to-layer="7" to-port="0"/>
+		<edge from-layer="7" from-port="1" to-layer="8" to-port="0"/>
+		<edge from-layer="8" from-port="3" to-layer="9" to-port="0"/>
+		<edge from-layer="9" from-port="1" to-layer="10" to-port="0"/>
+		<edge from-layer="10" from-port="3" to-layer="11" to-port="0"/>
+		<edge from-layer="11" from-port="1" to-layer="12" to-port="0"/>
+		<edge from-layer="12" from-port="1" to-layer="13" to-port="0"/>
+		<edge from-layer="13" from-port="3" to-layer="14" to-port="0"/>
+		<edge from-layer="14" from-port="1" to-layer="15" to-port="0"/>
+		<edge from-layer="15" from-port="3" to-layer="16" to-port="0"/>
+		<edge from-layer="16" from-port="1" to-layer="17" to-port="0"/>
+		<edge from-layer="17" from-port="1" to-layer="18" to-port="0"/>
+		<edge from-layer="18" from-port="3" to-layer="19" to-port="0"/>
+		<edge from-layer="19" from-port="1" to-layer="20" to-port="0"/>
+		<edge from-layer="20" from-port="1" to-layer="22" to-port="0"/>
+		<edge from-layer="21" from-port="1" to-layer="22" to-port="1"/>
+		<edge from-layer="22" from-port="2" to-layer="25" to-port="0"/>
+		<edge from-layer="23" from-port="1" to-layer="25" to-port="1"/>
+		<edge from-layer="24" from-port="1" to-layer="25" to-port="2"/>
+		<edge from-layer="22" from-port="2" to-layer="28" to-port="0"/>
+		<edge from-layer="26" from-port="1" to-layer="28" to-port="1"/>
+		<edge from-layer="27" from-port="1" to-layer="28" to-port="2"/>
+		<edge from-layer="25" from-port="3" to-layer="29" to-port="0"/>
+		<edge from-layer="28" from-port="3" to-layer="29" to-port="1"/>
+		<edge from-layer="29" from-port="2" to-layer="32" to-port="0"/>
+		<edge from-layer="30" from-port="1" to-layer="32" to-port="1"/>
+		<edge from-layer="31" from-port="1" to-layer="32" to-port="2"/>
+		<edge from-layer="29" from-port="2" to-layer="35" to-port="0"/>
+		<edge from-layer="33" from-port="1" to-layer="35" to-port="1"/>
+		<edge from-layer="34" from-port="1" to-layer="35" to-port="2"/>
+		<edge from-layer="32" from-port="3" to-layer="36" to-port="0"/>
+		<edge from-layer="35" from-port="3" to-layer="36" to-port="1"/>
+		<edge from-layer="36" from-port="2" to-layer="39" to-port="0"/>
+		<edge from-layer="37" from-port="1" to-layer="39" to-port="1"/>
+		<edge from-layer="38" from-port="1" to-layer="39" to-port="2"/>
+		<edge from-layer="36" from-port="2" to-layer="42" to-port="0"/>
+		<edge from-layer="40" from-port="1" to-layer="42" to-port="1"/>
+		<edge from-layer="41" from-port="1" to-layer="42" to-port="2"/>
+		<edge from-layer="39" from-port="3" to-layer="43" to-port="0"/>
+		<edge from-layer="42" from-port="3" to-layer="43" to-port="1"/>
+		<edge from-layer="43" from-port="2" to-layer="46" to-port="0"/>
+		<edge from-layer="44" from-port="1" to-layer="46" to-port="1"/>
+		<edge from-layer="45" from-port="1" to-layer="46" to-port="2"/>
+		<edge from-layer="43" from-port="2" to-layer="49" to-port="0"/>
+		<edge from-layer="47" from-port="1" to-layer="49" to-port="1"/>
+		<edge from-layer="48" from-port="1" to-layer="49" to-port="2"/>
+		<edge from-layer="46" from-port="3" to-layer="50" to-port="0"/>
+		<edge from-layer="49" from-port="3" to-layer="50" to-port="1"/>
+		<edge from-layer="50" from-port="2" to-layer="52" to-port="0"/>
+		<edge from-layer="51" from-port="1" to-layer="52" to-port="1"/>
+		<edge from-layer="52" from-port="2" to-layer="53" to-port="0"/>
+		<edge from-layer="53" from-port="3" to-layer="55" to-port="0"/>
+		<edge from-layer="54" from-port="1" to-layer="55" to-port="1"/>
+		<edge from-layer="55" from-port="2" to-layer="56" to-port="0"/>
+	</edges>
+	<meta_data>
+		<MO_version value="2019.1.0-341-gc9b66a2"/>
+		<cli_parameters>
+			<data_type value="FP32"/>
+			<disable_fusing value="False"/>
+			<disable_gfusing value="False"/>
+			<disable_nhwc_to_nchw value="False"/>
+			<disable_omitting_optional value="False"/>
+			<disable_resnet_optimization value="False"/>
+			<enable_concat_optimization value="False"/>
+			<enable_flattening_nested_params value="False"/>
+			<extensions value="DIR"/>
+			<framework value="tf"/>
+			<generate_deprecated_IR_V2 value="False"/>
+			<input value="Placeholder"/>
+			<input_model value="DIR/graph.pb"/>
+			<input_model_is_text value="False"/>
+			<input_shape value="[1,32,120,1]"/>
+			<k value="DIR/CustomLayersMapping.xml"/>
+			<keep_shape_ops value="False"/>
+			<legacy_mxnet_model value="False"/>
+			<log_level value="ERROR"/>
+			<mean_scale_values value="{}"/>
+			<mean_values value="()"/>
+			<model_name value="text-recognition-0012"/>
+			<move_to_preprocess value="False"/>
+			<output value="['shadow/LSTMLayers/transpose_time_major']"/>
+			<output_dir value="DIR"/>
+			<placeholder_shapes value="{'Placeholder': array([  1,  32, 120,   1])}"/>
+			<remove_output_softmax value="False"/>
+			<reverse_input_channels value="True"/>
+			<save_params_from_nd value="False"/>
+			<scale_values value="()"/>
+			<silent value="False"/>
+			<version value="False"/>
+			<unset unset_cli_parameters="batch, counts, finegrain_fusing, freeze_placeholder_with_value, input_checkpoint, input_meta_graph, input_proto, input_symbol, mean_file, mean_file_offsets, nd_prefix_name, pretrained_model_name, saved_model_dir, saved_model_tags, scale, tensorboard_logdir, tensorflow_custom_layer_libraries, tensorflow_custom_operations_config_update, tensorflow_object_detection_api_pipeline_config, tensorflow_operation_patterns, tensorflow_subgraph_patterns, tensorflow_use_custom_operations_config"/>
+		</cli_parameters>
+	</meta_data>
+</net>
