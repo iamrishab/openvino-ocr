@@ -1,5 +1,10 @@
-import text_detection
-import text_recognition
+import config
+if config.INFERENCE_ENGINE_TYPE == 'opencv':
+    import text_detection_cv as text_detection
+    import text_recognition_cv as text_recognition
+else:
+    import text_detection_ie as text_detection
+    import text_recognition_ie as text_recognition
 import cv2
 import argparse
 
